@@ -1,0 +1,3 @@
+go build -buildmode c-shared -o storj_uplink-macos.dylib
+
+GOARM=7 GOOS=darwin GOARCH=arm CC=iphoneos-clang CXX=iphoneos-clang++ CGO_CFLAGS=-isysroot=iphoneos -miphoneos-version-min=7.0 -arch armv7 CGO_CXXFLAGS=-isysroot=iphoneos -miphoneos-version-min=7.0 -arch armv7 CGO_LDFLAGS=-isysroot=iphoneos -miphoneos-version-min=7.0 -arch armv7 CGO_ENABLED=1 go build -tags ios -x -ldflags=-w -o=/arm/storj_uplink-arm.dylib

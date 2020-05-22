@@ -10,8 +10,9 @@ CC=cc \
 CXX=c++ \
 CGO_ENABLED=1 \
 GOARCH=arm \
-CGO_CFLAGS="-arch arm -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk -miphoneos-version-min=10.0" \
-CGO_LDFLAGS="-arch arm -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk -miphoneos-version-min=10.0" \
+GOARM=7 \
+CGO_CFLAGS="-arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk -miphoneos-version-min=10.0" \
+CGO_LDFLAGS="-arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk -miphoneos-version-min=10.0" \
 go build -ldflags -w -v -installsuffix goi -o "arm/storj_uplink.a" -buildmode=c-archive
 
 echo "*** Build for iOs x64 ***"

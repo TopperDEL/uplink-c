@@ -110,12 +110,6 @@ typedef double GoFloat64;
 typedef float _Complex GoComplex64;
 typedef double _Complex GoComplex128;
 
-/*
-  static assertion to make sure the file is being used on architecture
-  at least with matching size of GoInt.
-*/
-typedef char _check_for_64_bit_pointer_matching_GoInt[sizeof(void*)==64/8 ? 1:-1];
-
 #ifndef GO_CGO_GOSTRING_TYPEDEF
 typedef _GoString_ GoString;
 #endif

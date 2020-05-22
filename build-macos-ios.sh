@@ -35,7 +35,7 @@ CGO_ENABLED=1 \
 GOARCH=386 \
 CGO_CFLAGS="-arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.4.sdk" \
 CGO_LDFLAGS="-arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.4.sdk" \
-go build -ldflags -w -v -tags ios -o "build/sim86/storj_uplink.a" -buildmode=c-archive
+go build -ldflags -w -v -tags ios -o "build/sim86/storj_uplink.dylib" -buildmode=c-shared
 
 echo "*** Build for iOs-Simulator x64 ***"
 env \
@@ -46,4 +46,4 @@ CGO_ENABLED=1 \
 GOARCH=amd64 \
 CGO_CFLAGS="-arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.4.sdk" \
 CGO_LDFLAGS="-arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.4.sdk" \
-go build -ldflags -w -v -tags ios -o "build/sim64/storj_uplink.a" -buildmode=c-archive
+go build -ldflags -w -v -tags ios -o "build/sim64/storj_uplink.dylib" -buildmode=c-shared

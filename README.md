@@ -1,7 +1,7 @@
 # uplink-c
 
 
-This is a fork of the original storj/uplink-c-repo. It contains four additional files from the uplink.net-repo and two build-scripts necessary for building the linux-, MacOS and iOS-binaries. See the README of the uplink.Net-Repo for further info.
+This is a fork of the original storj/uplink-c-repo. It contains four additional files from the [uplink.net-repo](https://github.com/TopperDEL/uplink.net) and two build-scripts necessary for building the linux-, MacOS and iOS-binaries. See the [README](https://github.com/TopperDEL/uplink.net) of the uplink.Net-Repo for further info.
 
 
 C library for Storj V3 Network.

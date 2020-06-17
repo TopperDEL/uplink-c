@@ -282,7 +282,7 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_storj_uplink(SWIG_CSharpS
 
 
 char* get_storj_version(){
-	return "v1.0.2";
+	return "v1.0.3";
 }
 
 

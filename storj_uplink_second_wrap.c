@@ -282,7 +282,7 @@ SWIGEXPORT void SWIGSTDCALL SWIGRegisterStringCallback_storj_uplink(SWIG_CSharpS
 
 
 char* get_storj_version(){
-	return "v1.0.3";
+	return "v1.1.0";
 }
 
 
@@ -591,6 +591,24 @@ SWIGEXPORT void * SWIGSTDCALL CSharp_uplinkfSWIG_access_share___(void * jarg1, v
     memmove(resultptr, &result, sizeof(AccessResult));
     jresult = resultptr;
   }
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_uplinkfSWIG_access_override_encryption_key___(void * jarg1, char * jarg2, char * jarg3, void * jarg4) {
+  void * jresult ;
+  Access *arg1 = (Access *) 0 ;
+  char *arg2 = (char *) 0 ;
+  char *arg3 = (char *) 0 ;
+  EncryptionKey *arg4 = (EncryptionKey *) 0 ;
+  Error *result = 0 ;
+  
+  arg1 = (Access *)jarg1; 
+  arg2 = (char *)jarg2; 
+  arg3 = (char *)jarg3; 
+  arg4 = (EncryptionKey *)jarg4; 
+  result = (Error *)access_override_encryption_key(arg1,arg2,arg3,arg4);
+  jresult = (void *)result; 
   return jresult;
 }
 
@@ -971,6 +989,40 @@ SWIGEXPORT void SWIGSTDCALL CSharp_uplinkfSWIG_free_download_result___(void * ja
   }
   arg1 = *argp1; 
   free_download_result(arg1);
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_uplinkfSWIG_derive_encryption_key___(char * jarg1, void * jarg2, unsigned long jarg3) {
+  void * jresult ;
+  char *arg1 = (char *) 0 ;
+  void *arg2 = (void *) 0 ;
+  size_t arg3 ;
+  EncryptionKeyResult result;
+  
+  arg1 = (char *)jarg1; 
+  arg2 = (void *)jarg2; 
+  arg3 = (size_t)jarg3; 
+  result = derive_encryption_key(arg1,arg2,arg3);
+  {
+    EncryptionKeyResult * resultptr = (EncryptionKeyResult *) malloc(sizeof(EncryptionKeyResult));
+    memmove(resultptr, &result, sizeof(EncryptionKeyResult));
+    jresult = resultptr;
+  }
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_uplinkfSWIG_free_encryption_key_result___(void * jarg1) {
+  EncryptionKeyResult arg1 ;
+  EncryptionKeyResult *argp1 ;
+  
+  argp1 = (EncryptionKeyResult *)jarg1; 
+  if (!argp1) {
+    SWIG_CSharpSetPendingExceptionArgument(SWIG_CSharpArgumentNullException, "Attempt to dereference null EncryptionKeyResult", 0);
+    return ;
+  }
+  arg1 = *argp1; 
+  free_encryption_key_result(arg1);
 }
 
 
@@ -1524,6 +1576,46 @@ SWIGEXPORT void SWIGSTDCALL CSharp_uplinkfSWIG_delete_Upload___(void * jarg1) {
   struct Upload *arg1 = (struct Upload *) 0 ;
   
   arg1 = (struct Upload *)jarg1; 
+  free((char *) arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_uplinkfSWIG_EncryptionKey__handle_set___(void * jarg1, unsigned long jarg2) {
+  struct EncryptionKey *arg1 = (struct EncryptionKey *) 0 ;
+  size_t arg2 ;
+  
+  arg1 = (struct EncryptionKey *)jarg1; 
+  arg2 = (size_t)jarg2; 
+  if (arg1) (arg1)->_handle = arg2;
+}
+
+
+SWIGEXPORT unsigned long SWIGSTDCALL CSharp_uplinkfSWIG_EncryptionKey__handle_get___(void * jarg1) {
+  unsigned long jresult ;
+  struct EncryptionKey *arg1 = (struct EncryptionKey *) 0 ;
+  size_t result;
+  
+  arg1 = (struct EncryptionKey *)jarg1; 
+  result =  ((arg1)->_handle);
+  jresult = (unsigned long)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_uplinkfSWIG_new_EncryptionKey___() {
+  void * jresult ;
+  struct EncryptionKey *result = 0 ;
+  
+  result = (struct EncryptionKey *)calloc(1, sizeof(struct EncryptionKey));
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_uplinkfSWIG_delete_EncryptionKey___(void * jarg1) {
+  struct EncryptionKey *arg1 = (struct EncryptionKey *) 0 ;
+  
+  arg1 = (struct EncryptionKey *)jarg1; 
   free((char *) arg1);
 }
 
@@ -3434,6 +3526,68 @@ SWIGEXPORT void SWIGSTDCALL CSharp_uplinkfSWIG_delete_StringResult___(void * jar
   struct StringResult *arg1 = (struct StringResult *) 0 ;
   
   arg1 = (struct StringResult *)jarg1; 
+  free((char *) arg1);
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_uplinkfSWIG_EncryptionKeyResult_encryption_key_set___(void * jarg1, void * jarg2) {
+  struct EncryptionKeyResult *arg1 = (struct EncryptionKeyResult *) 0 ;
+  EncryptionKey *arg2 = (EncryptionKey *) 0 ;
+  
+  arg1 = (struct EncryptionKeyResult *)jarg1; 
+  arg2 = (EncryptionKey *)jarg2; 
+  if (arg1) (arg1)->encryption_key = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_uplinkfSWIG_EncryptionKeyResult_encryption_key_get___(void * jarg1) {
+  void * jresult ;
+  struct EncryptionKeyResult *arg1 = (struct EncryptionKeyResult *) 0 ;
+  EncryptionKey *result = 0 ;
+  
+  arg1 = (struct EncryptionKeyResult *)jarg1; 
+  result = (EncryptionKey *) ((arg1)->encryption_key);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_uplinkfSWIG_EncryptionKeyResult_error_set___(void * jarg1, void * jarg2) {
+  struct EncryptionKeyResult *arg1 = (struct EncryptionKeyResult *) 0 ;
+  Error *arg2 = (Error *) 0 ;
+  
+  arg1 = (struct EncryptionKeyResult *)jarg1; 
+  arg2 = (Error *)jarg2; 
+  if (arg1) (arg1)->error = arg2;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_uplinkfSWIG_EncryptionKeyResult_error_get___(void * jarg1) {
+  void * jresult ;
+  struct EncryptionKeyResult *arg1 = (struct EncryptionKeyResult *) 0 ;
+  Error *result = 0 ;
+  
+  arg1 = (struct EncryptionKeyResult *)jarg1; 
+  result = (Error *) ((arg1)->error);
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void * SWIGSTDCALL CSharp_uplinkfSWIG_new_EncryptionKeyResult___() {
+  void * jresult ;
+  struct EncryptionKeyResult *result = 0 ;
+  
+  result = (struct EncryptionKeyResult *)calloc(1, sizeof(struct EncryptionKeyResult));
+  jresult = (void *)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void SWIGSTDCALL CSharp_uplinkfSWIG_delete_EncryptionKeyResult___(void * jarg1) {
+  struct EncryptionKeyResult *arg1 = (struct EncryptionKeyResult *) 0 ;
+  
+  arg1 = (struct EncryptionKeyResult *)jarg1; 
   free((char *) arg1);
 }
 

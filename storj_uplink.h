@@ -49,6 +49,11 @@ typedef struct { const char *p; ptrdiff_t n; } _GoString_;
 
 #line 1 "cgo-generated-wrapper"
 
+#line 6 "encryption.go"
+ #include "uplink_definitions.h"
+
+#line 1 "cgo-generated-wrapper"
+
 #line 6 "error.go"
  #include "uplink_definitions.h"
 
@@ -148,6 +153,14 @@ extern StringResult access_serialize(Access* p0);
 
 extern AccessResult access_share(Access* p0, Permission p1, SharePrefix* p2, GoInt p3);
 
+// access_override_encryption_key overrides the root encryption key for the prefix in
+// bucket with encryptionKey.
+//
+// This function is useful for overriding the encryption key in user-specific
+// access grants when implementing multitenancy in a single app bucket.
+
+extern Error* access_override_encryption_key(Access* p0, char* p1, char* p2, EncryptionKey* p3);
+
 // free_string_result frees the resources associated with string result.
 
 extern void free_string_result(StringResult p0);
@@ -186,7 +199,7 @@ extern void free_bucket_result(BucketResult p0);
 
 extern void free_bucket(Bucket* p0);
 
-// list_buckets lists buckets
+// list_buckets lists buckets.
 
 extern BucketIterator* list_buckets(Project* p0, ListBucketsOptions* p1);
 
@@ -260,6 +273,18 @@ extern Error* close_download(Download* p0);
 
 extern void free_download_result(DownloadResult p0);
 
+// derive_encryption_key derives a salted encryption key for passphrase using the
+// salt.
+//
+// This function is useful for deriving a salted encryption key for users when
+// implementing multitenancy in a single app bucket.
+
+extern EncryptionKeyResult derive_encryption_key(char* p0, void* p1, size_t p2);
+
+// free_encryption_key_result frees the resources associated with encryption key.
+
+extern void free_encryption_key_result(EncryptionKeyResult p0);
+
 // free_error frees error data.
 
 extern void free_error(Error* p0);
@@ -284,7 +309,7 @@ extern void free_object_result(ObjectResult p0);
 
 extern void free_object(Object* p0);
 
-// list_objects lists objects
+// list_objects lists objects.
 
 extern ObjectIterator* list_objects(Project* p0, char* p1, ListObjectsOptions* p2);
 

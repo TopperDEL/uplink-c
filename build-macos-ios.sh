@@ -17,6 +17,8 @@ go build -ldflags -w -v -tags ios -o "build/arm64/storj_uplink.a" -buildmode=c-a
 xcrun -sdk iphoneos clang -arch arm64 -fpic -shared -Wl,-all_load "build/arm64/storj_uplink.a" -framework Corefoundation -o "build/arm64/storj_uplink.dylib"
 rm "build/arm64/storj_uplink.a"
 
+install_name_tool -id "@rpath/storj_uplink.framework/storj_uplink" "build/arm64/storj_uplink.dylib"
+
 echo "*** Build for iOs-Simulator x86 ***"
 env \
 GOOS='darwin' \
